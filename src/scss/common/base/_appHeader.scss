@@ -1,0 +1,13 @@
+.app-header {
+    background: $bg-wheat;
+    .fa.fa-bars {
+        display: inline-block;
+        cursor: pointer;
+        position: absolute;
+        top: 0.5rem;
+        left: 2rem;
+    }
+    .page-title {
+        display: inline-block;
+    }
+}
