@@ -1,0 +1,17 @@
+//font
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    src: url(font/NotoSansTC-Medium.otf);
+}
+
+//normalize
+@import '~normalize.css/normalize';
+//animate
+@import '~animate.css/animate.min';
+//font-awesome
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+//elementUI
+@import '~element-ui/lib/theme-default/index.css';

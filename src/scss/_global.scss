@@ -1,0 +1,49 @@
+html,
+body {
+    font-family: "Noto Sans TC", "微軟正黑體";
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: $bg-green;
+    line-height: 2rem;
+    //ie scrollBar hide
+    -ms-overflow-style: none;
+    //chrome,safari scrollBar hide
+     ::-webkit-scrollbar {
+        display: none;
+    }
+    //FireFox scrollBar hide
+    overflow: -moz-scrollbars-none;
+    ul {
+        list-style-type: none;
+        font-size: 0;
+        padding: 0;
+    }
+    *:focus {
+        outline: none;
+    }
+     ::-webkit-input-placeholder {
+        color: $text-gray;
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+}
