@@ -4,7 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const style = new ExtractTextPlugin({ filename: 'css/[name].css', allChunks: true })
 module.exports = {
     entry: {
-        common: ['babel-polyfill', 'vue', 'vue-router', 'vuex', 'element-ui', 'exif-js', './src/scss/import.scss'], //
+        common: ['babel-polyfill', 'vue', 'vue-router', 'vuex', 'element-ui', './src/scss/import.scss'], //
         build: ['./src/index.js', './src/scss/index.scss']
     },
     output: {
@@ -74,17 +74,15 @@ module.exports = {
     },
     resolve: {
         modules: [path.resolve(__dirname, "src"), "node_modules"],
-        extensions: ['.js', '.css', 'scss'],
-        alias: {
-
-        }
+        extensions: ['.js', '.css', 'scss']
     },
     devServer: {
         historyApiFallback: false,
         contentBase: "dist",
         noInfo: true,
         open: true,
-        port: 3030
+        port: 3030,
+        compress: true
     },
     plugins: [
         style,
