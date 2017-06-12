@@ -4,8 +4,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const style = new ExtractTextPlugin({ filename: 'css/[name].css', allChunks: true })
 module.exports = {
     entry: {
-        common: ['babel-polyfill', 'vue', 'vue-router', 'vuex', 'element-ui', 'exif-js', './src/scss/import.scss'],
-        build: ['./src/index.js', './src/scss/index.scss']
+        common: ['babel-polyfill', 'vue', 'vue-router', 'vuex', 'element-ui', 'exif-js'], // './src/scss/import.scss'
+        // build: ['./src/index.js', './src/scss/index.scss']
+        // build: './src/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -13,74 +14,78 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.vue$/,
+            test: /\.vue$/,
+            use: [{
+                loader: 'vue-loader'
+            }]
+        },
+        {
+            test: /\.js$/,
+            use: 'babel-loader'
+        },
+        {
+            test: /\.css$/,
+            use: style.extract({
                 use: [{
-                    loader: 'vue-loader'
-                }]
-            },
-            {
-                test: /\.js$/,
-                use: 'babel-loader'
-            },
-            {
-                test: /\.css$/,
-                use: style.extract({
-                    use: [{
-                        loader: 'css-loader',
-                        options: {
-                            minimize: true
-                        }
-                    }, {
-                        loader: 'postcss-loader'
-                    }]
-                })
-            },
-            {
-                test: /\.scss$/,
-                use: style.extract({
-                    use: [{
-                            loader: 'css-loader',
-                            options: {
-                                minimize: true
-                            }
-                        },
-                        { loader: 'sass-loader' }
-                    ]
-                })
-            },
-            {
-                test: /\.(eot|otf|svg|ttf|woff|woff2)(\?\S*)?$/,
-                use: [{
-                    loader: 'file-loader',
+                    loader: 'css-loader',
                     options: {
-                        useRelativePath: false,
-                        publicPath: '../',
-                        name: 'font/[name].[ext]'
+                        minimize: true
                     }
+                }, {
+                    loader: 'postcss-loader'
                 }]
-            },
-            {
-                test: /\.(png|jpe?g|gif)(\?\S*)?$/,
+            })
+        },
+        {
+            test: /\.scss$/,
+            use: style.extract({
                 use: [{
-                    loader: 'file-loader',
+                    loader: 'css-loader',
                     options: {
-                        useRelativePath: false,
-                        publicPath: './',
-                        name: 'img/[name].[ext]'
+                        minimize: true
                     }
-                }]
-            }
+                },
+                { loader: 'sass-loader' }
+                ]
+            })
+        },
+        {
+            test: /\.(eot|otf|svg|ttf|woff|woff2)(\?\S*)?$/,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    useRelativePath: false,
+                    publicPath: '../',
+                    name: 'font/[name].[ext]'
+                }
+            }]
+        },
+        {
+            test: /\.(png|jpe?g|gif)(\?\S*)?$/,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    useRelativePath: false,
+                    publicPath: './',
+                    name: 'img/[name].[ext]'
+                }
+            }]
+        }
         ],
     },
     resolve: {
-        modules: [path.resolve(__dirname, "src"), "node_modules"]
+        modules: [path.resolve(__dirname, "src"), "node_modules"],
+        extensions: ['.js', '.css', 'scss'],
+        alias: {
+
+        }
     },
     devServer: {
         historyApiFallback: false,
         contentBase: "dist",
         noInfo: true,
         open: true,
-        port: 8086
+        port: 3030
     },
     plugins: [
         style,
