@@ -7,7 +7,7 @@
     </div>
 </template>
 <script>
-import { imgRotate } from 'util/imgFix'
+// import { imgRotate } from 'util/imgFix'
 export default {
     // data() {
     //     return {
