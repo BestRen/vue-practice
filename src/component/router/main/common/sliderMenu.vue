@@ -4,7 +4,7 @@
             <el-submenu index="1">
                 <template slot="title">頁面</template>
                 <el-menu-item index="首頁">首頁</el-menu-item>
-                <el-menu-item index="test1">test1</el-menu-item>
+                <el-menu-item index="fileReader">FileReader</el-menu-item>
                 <el-menu-item index="test2">test2</el-menu-item>
             </el-submenu>
     
