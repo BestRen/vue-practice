@@ -31,9 +31,7 @@ class edit {
             }
             img.src = reader.result
         };
-        reader.readAsDataURL(file)
-
-        console.log(this);
+        reader.readAsDataURL(file);
     }
 }
 let util = new edit();
