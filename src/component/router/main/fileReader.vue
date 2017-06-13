@@ -17,6 +17,13 @@ class edit {
                 setImg = (image, size) => {
                     const canvas = document.createElement('canvas');
                     const ctx = canvas.getContext("2d");
+                    if (img.height > size) {
+                        canvas.width = size
+                        canvas.height = img.width / img.height * size
+                    } else {
+                        canvas.width = img.height
+                        canvas.height = img.width
+                    }
                     ctx.drawImage(image, 0, 0, img.width, image.height, 0, 0, canvas.height, canvas.width)
                     this.img = canvas.toDataURL("image/png", 0.8)
                 }
