@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 import main from './router/main/main.vue';
 import index from './router/main/index.vue';
-import test1 from './router/main/test1.vue';
+import fileReader from './router/main/fileReader.vue';
 import test2 from './router/main/test2.vue';
 
 import head from './router/main/common/head.vue';
@@ -31,9 +31,9 @@ const routerMap = {
                 name: '首頁'
             }
             , {
-                path: 'test1',
-                component: test1,
-                name: 'test1'
+                path: 'fileReader',
+                component: fileReader,
+                name: 'fileReader'
             }
             , {
                 path: 'test2',
