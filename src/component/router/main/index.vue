@@ -26,7 +26,7 @@
                 </div>
             </el-col>
         </el-row>
-        <el-table :data="items" style="width: 100%">
+        <el-table :data="items" style="width: 100%" v-loading.body="loading">
             <el-table-column prop="Firstname" label="Firstname">
             </el-table-column>
             <el-table-column prop="Lastname" label="Lastname">
@@ -46,7 +46,7 @@
 
 class util {
     edit(index) {
-        console.log('index: ', index);
+
         this.index = index;
         this.show = false;
         this.firstName = this.items[index].Firstname;
@@ -69,7 +69,7 @@ let Edit = new util();
 export default {
     data() {
         return {
-            items: [], firstName: '', lastName: '', age: '', show: true
+            items: [], firstName: '', lastName: '', age: '', show: true, loading: false
         }
     },
     computed: {
@@ -79,16 +79,21 @@ export default {
     },
     methods: {
         getData() {
-            this.items = [
-                {
-                    Firstname: 'Jill',
-                    Lastname: 'Smith',
-                    Age: '50'
-                }, {
-                    Firstname: 'Eve',
-                    Lastname: 'Jackson',
-                    Age: '94'
-                }];
+            this.loading = true;
+            setTimeout(() => {
+                this.loading = false;
+                this.items = [
+                    {
+                        Firstname: 'Jill',
+                        Lastname: 'Smith',
+                        Age: '50'
+                    }, {
+                        Firstname: 'Eve',
+                        Lastname: 'Jackson',
+                        Age: '94'
+                    }];
+            }, 300);
+
         },
         add() {
             if (this.firstName && this.lastName && this.age) {
@@ -100,7 +105,7 @@ export default {
             }
         },
         removeData(getIndex) {
-            console.log('getIndex: ', getIndex);
+
             this.items.splice(getIndex, 1);
         },
         edit: Edit.edit,
