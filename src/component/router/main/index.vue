@@ -2,38 +2,51 @@
     <div>
         <div v-text="msg"></div>
         <button v-on:click="getData">Get Data!!</button>
-        <br> Firstname
-        <input type="text" v-model="firstName"> Lastname
-        <input type="text" v-model="lastName"> Age
-        <input type="text" v-model="age">
-        <button v-on:click=add v-if="show">Push!</button>
-        <button v-on:click=save v-if="!show">Save!</button>
-        <table style="width:100%" border=1 v-if="items.length!==0">
-            <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr v-for="(item,index) in items">
-                <td v-text="item.Firstname"></td>
-                <td v-text="item.Lastname"></td>
-                <td v-text="item.Age"></td>
-                <td>
-                    <button v-on:click="removeData(index)">Remove!</button>
-                </td>
-                <td>
-                    <button v-on:click="edit(index)">Edit!</button>
-                </td>
-            </tr>
-        </table>
+        <el-row :gutter="20">
+            <el-col :span="6">
+                <div class="grid-content bg-purple">
+                    Firstname
+                    <input type="text" v-model="firstName">
+                </div>
+            </el-col>
+            <el-col :span="6">
+                <div class="grid-content bg-purple">Lastname
+                    <input type="text" v-model="lastName">
+                </div>
+            </el-col>
+            <el-col :span="6">
+                <div class="grid-content bg-purple">Age
+                    <input type="text" v-model="age">
+                </div>
+            </el-col>
+            <el-col :span="6">
+                <div class="grid-content bg-purple">
+                    <button v-on:click=add v-if="show">Push!</button>
+                    <button v-on:click=save v-if="!show">Save!</button>
+                </div>
+            </el-col>
+        </el-row>
+        <el-table :data="items" style="width: 100%">
+            <el-table-column prop="Firstname" label="Firstname">
+            </el-table-column>
+            <el-table-column prop="Lastname" label="Lastname">
+            </el-table-column>
+            <el-table-column prop="Age" label="Age">
+            </el-table-column>
+            <el-table-column fixed="right" label="操作" width="100">
+                <template scope="scope">
+                    <el-button v-on:click="removeData(scope.$index)" size="small" type="danger">Remove</el-button>
+                    <el-button v-on:click="edit(scope.$index)" size="small">Edit</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
     </div>
 </template>
 <script>
 
 class util {
     edit(index) {
+        console.log('index: ', index);
         this.index = index;
         this.show = false;
         this.firstName = this.items[index].Firstname;
@@ -87,6 +100,7 @@ export default {
             }
         },
         removeData(getIndex) {
+            console.log('getIndex: ', getIndex);
             this.items.splice(getIndex, 1);
         },
         edit: Edit.edit,
