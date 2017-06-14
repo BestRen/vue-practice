@@ -1,14 +1,10 @@
 <template>
     <div>
         <div v-text="msg"></div>
-        <div class="">
-            <img class="mySlides" src="http://fakeimg.pl/100/?text=01">
-            <img class="mySlides" src="http://fakeimg.pl/100/?text=02">
-            <img class="mySlides" src="http://fakeimg.pl/100/?text=03">
-            <img class="mySlides" src="http://fakeimg.pl/100/?text=04">
-    
-            <button class="w3-button w3-black w3-display-left" v-on:click="plusDivs(-1)">&#10094;</button>
-            <button class="w3-button w3-black w3-display-right" v-on:click="plusDivs(1)">&#10095;</button>
+        <div class="slide-show">
+            <img v-for="item in imgArray" v-bind:class="item.class" v-bind:src="item.src">
+            <button class="arrow-left" v-on:click="arrowLeft(-1)">&#10094;</button>
+            <button class="arrow-right" v-on:click="arrowRight(1)">&#10095;</button>
         </div>
     </div>
 </template>
@@ -18,37 +14,55 @@
 export default {
     data() {
         return {
-            slideIndex: 1
+            slideIndex: 0,
+            imgArray: [{
+                index: 1,
+                class: 'mySlides active',
+                src: 'http://fakeimg.pl/100/?text=01'
+            }, {
+                index: 2,
+                class: 'mySlides',
+                src: 'http://fakeimg.pl/100/?text=02'
+            }, {
+                index: 3,
+                class: 'mySlides',
+                src: 'http://fakeimg.pl/100/?text=03'
+            }, {
+                index: 4,
+                class: 'mySlides',
+                src: 'http://fakeimg.pl/100/?text=04'
+            }]
         }
     },
-    created() {
-        // this.showDivs(this.slideIndex);
-    },
-    mounted() {
-        // showDivs(n) {
-        let i;
-        let x = document.getElementsByClassName("mySlides");
-        console.log('x: ', x.length);
-
-        if (n > x.length) { this.slideIndex = 1 }
-        if (n < 1) { this.slideIndex = x.length };
-        for (let i = 0; i < x.length; i++) {
-
-            x[i].style.display = "none";
-        }
-        x[this.slideIndex - 1].style.display = "block";
-        console.log('this.slideIndex: ', this.slideIndex);
-        // }
-    },
+    created() { },
+    mounted() { },
     computed: {
         msg() {
             return 'Slideshow!!'
         }
     },
     methods: {
-        plusDivs(getData) {
-
-            this.showDivs(this.slideIndex += getData);
+        arrowLeft(getIndex) {
+            if (this.slideIndex === 0) {
+                this.slideIndex = 3;
+                this.imgArray[0].class = 'mySlides';
+                this.imgArray[this.slideIndex].class = 'mySlides active';
+            } else {
+                this.imgArray[this.slideIndex].class = 'mySlides';
+                this.slideIndex -= 1;
+                this.imgArray[this.slideIndex].class = 'mySlides active';
+            }
+        },
+        arrowRight(getIndex) {
+            if (this.slideIndex === (this.imgArray.length - 1)) {
+                this.slideIndex = 0;
+                this.imgArray[this.imgArray.length - 1].class = 'mySlides';
+                this.imgArray[this.slideIndex].class = 'mySlides active';
+            } else {
+                this.imgArray[this.slideIndex].class = 'mySlides';
+                this.slideIndex += 1;
+                this.imgArray[this.slideIndex].class = 'mySlides active';
+            }
         }
     }
 }

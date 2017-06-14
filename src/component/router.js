@@ -15,6 +15,19 @@ Vue.component('appHeader', head);
 Vue.component('appFooter', foot);
 Vue.component('sliderMenu', sliderMenu);
 
+Vue.component('example', {
+    template: '<button v-on:click="updateMessage($event)">{{ message }}</button><span>HHHH</span><button>aaa</button>',
+    data: function () {
+        return {
+            message: 'not updated'
+        }
+    },
+    methods: {
+        updateMessage: function (e) {
+            this.message = 'updated';
+        }
+    }
+});
 
 Vue.use(VueRouter)
 const routerMap = {
