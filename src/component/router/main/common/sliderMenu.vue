@@ -6,6 +6,7 @@
                 <el-menu-item index="首頁">首頁</el-menu-item>
                 <el-menu-item index="fileReader">FileReader</el-menu-item>
                 <el-menu-item index="alert">alert</el-menu-item>
+                <el-menu-item index="slideshow">slideshow</el-menu-item>
             </el-submenu>
     
         </el-menu>
@@ -27,7 +28,7 @@ export default {
             if (key.length > 0) {
                 console.log('key.length: ', key.length);
                 router.push({ name: key });
-                // sliderMenuCtrl.dispatch('Hide')
+                sliderMenuCtrl.dispatch('Hide')
             }
         }
     }

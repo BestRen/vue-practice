@@ -9,6 +9,7 @@ import alert from './router/main/alert.vue';
 import head from './router/main/common/head.vue';
 import foot from './router/main/common/foot.vue';
 import sliderMenu from './router/main/common/sliderMenu.vue';
+import slideshow from './router/main/slideshow.vue';
 
 Vue.component('appHeader', head);
 Vue.component('appFooter', foot);
@@ -39,6 +40,10 @@ const routerMap = {
                 path: 'alert',
                 component: alert,
                 name: 'alert'
+            }, {
+                path: 'slideshow',
+                component: slideshow,
+                name: 'slideshow'
             }
         ]
     }
