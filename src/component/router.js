@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 import main from './router/main/main.vue';
 import index from './router/main/index.vue';
 import fileReader from './router/main/fileReader.vue';
-import test2 from './router/main/test2.vue';
+import alert from './router/main/alert.vue';
 
 import head from './router/main/common/head.vue';
 import foot from './router/main/common/foot.vue';
@@ -36,9 +36,9 @@ const routerMap = {
                 name: 'fileReader'
             }
             , {
-                path: 'test2',
-                component: test2,
-                name: 'test2'
+                path: 'alert',
+                component: alert,
+                name: 'alert'
             }
         ]
     }
