@@ -2,16 +2,16 @@ import { callAjax } from './callAjax.js';
 
 const state = {}
 const mutations = {
-    response(state, data) {
+    getData(state, data) {
         state.data = data
     }
 }
 const actions = {
     callApi: ({ commit }) => {
-        AjaxGet('https://jsonplaceholder.typicode.com/posts/1')
+        callAjax('https://jsonplaceholder.typicode.com/posts/1')
             .then(data => {
-                commit('response.', data)
-            });
+                commit('getData', data)
+            })
     }
 }
 const getters = {}

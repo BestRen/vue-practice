@@ -3,7 +3,8 @@ const callAjax = (url) => {
         let get = new XMLHttpRequest()
         get.onload = (e) => {
             if (e.target.status === 200) {
-                resolve(JSON.parse(e.target.response))
+                console.log(JSON.parse(e.target.response));
+                resolve(JSON.parse(e.target.response));
             } else {
                 resolve(JSON.parse(e.target.response))
             }
