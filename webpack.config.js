@@ -77,6 +77,9 @@ module.exports = {
         extensions: ['.js', '.css', 'scss']
     },
     devServer: {
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        },
         historyApiFallback: false,
         contentBase: "dist",
         noInfo: true,

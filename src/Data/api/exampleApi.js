@@ -1,9 +1,11 @@
 import { callAjax } from './callAjax.js';
 
-const state = {}
+const state = {
+    data: null
+}
 const mutations = {
     getData(state, data) {
-        state.data = data
+        state.data = data;
     }
 }
 const actions = {
