@@ -1,11 +1,15 @@
 <template>
     <div>
-        <div v-text="msg"></div>
-        <el-button type="primary" v-on:click="callApi">Call Ajax</el-button>
-        <div v-text="data"></div>
+        <!--<div v-text="msg"></div>-->
+        <!--<el-button type="primary" v-on:click="callApi">Call Ajax</el-button>-->
         <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea">
         </el-input>
         <el-button type="primary" size="large" v-on:click="send">送出</el-button>
+        <div v-for="item in data">
+            {{item}}
+            <!--<div v-for="i in reverse(item)">{{i}}</div>-->
+        </div>
+    
     </div>
 </template>
 <script>
@@ -25,7 +29,10 @@ export default {
             return 'Ajax!!'
         },
         data() {
-            return exampleApiCtrl.state.data
+            console.log(exampleApiCtrl.state.data);
+            return exampleApiCtrl.state.data || '';
+
+
         }
     },
     methods: {
@@ -35,6 +42,11 @@ export default {
         send() {
             console.log(this.textarea);
             exampleApiCtrl.dispatch('postApi', this.textarea);
+            this.textarea = '';
+        },
+        reverse(getData) {
+            console.log('getData: ', getData);
+            return getData.reverse();
         }
     }
 }
