@@ -5,7 +5,7 @@
         <div v-text="data"></div>
         <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea">
         </el-input>
-        <el-button type="primary" size="large">送出</el-button>
+        <el-button type="primary" size="large" v-on:click="send">送出</el-button>
     </div>
 </template>
 <script>
@@ -31,7 +31,10 @@ export default {
     methods: {
         callApi() {
             exampleApiCtrl.dispatch('callApi');
-
+        },
+        send() {
+            console.log(this.textarea);
+            exampleApiCtrl.dispatch('postApi', this.textarea);
         }
     }
 }
