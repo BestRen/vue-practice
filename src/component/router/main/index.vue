@@ -2,24 +2,25 @@
     <div>
         <div v-text="msg"></div>
         <button v-on:click="getData">Get Data!!</button>
-        <el-row :gutter="20">
-            <el-col :span="6">
+        <el-row :gutter="24">
+            <el-col :xs="8" :sm="6" :md="4" :lg="6">
                 <div class="grid-content bg-purple">
                     Firstname
-                    <input type="text" v-model="firstName">
+                    <el-input v-model="firstName" placeholder=""></el-input>
                 </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :xs="8" :sm="6" :md="4" :lg="3">
                 <div class="grid-content bg-purple">Lastname
-                    <input type="text" v-model="lastName">
+                    <el-input v-model="lastName" placeholder=""></el-input>
                 </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :xs="8" :sm="6" :md="4" :lg="3">
                 <div class="grid-content bg-purple">Age
-                    <input type="text" v-model="age">
+    
+                    <el-input v-model="age" placeholder=""></el-input>
                 </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :xs="8" :sm="6" :md="4" :lg="3">
                 <div class="grid-content bg-purple">
                     <button v-on:click=add v-if="show">Push!</button>
                     <button v-on:click=save v-if="!show">Save!</button>
