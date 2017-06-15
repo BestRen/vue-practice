@@ -8,6 +8,7 @@
                 <el-menu-item index="alert">Alert</el-menu-item>
                 <el-menu-item index="slideshow">Slideshow</el-menu-item>
                 <el-menu-item index="ajax">Ajax</el-menu-item>
+                <el-menu-item index="treeView">Tree View</el-menu-item>
             </el-submenu>
         </el-menu>
     </div>
