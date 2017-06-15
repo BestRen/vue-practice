@@ -8,7 +8,7 @@ const mutations = {
 }
 const actions = {
     callApi: ({ commit }) => {
-        callAjax('https://jsonplaceholder.typicode.com/posts/1')
+        callAjax('http://128.199.162.67:8080/tmp_note/get')
             .then(data => {
                 commit('getData', data)
             })
