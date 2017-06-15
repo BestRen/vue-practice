@@ -7,6 +7,7 @@ const mutations = {
     getData(state, data) {
         state.data = data;
     }
+
 }
 const actions = {
     callApi: ({ commit }) => {
@@ -19,7 +20,7 @@ const actions = {
         console.log('data: ', data);
         postAjax('http://128.199.162.67:8080/tmp_note/get')
             .then(data => {
-                commit('getData', data)
+                // commit('getData', data)
             })
     }
 }

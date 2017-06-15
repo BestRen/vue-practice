@@ -12,6 +12,7 @@ import sliderMenu from './router/main/common/sliderMenu.vue';
 import slideshow from './router/main/slideshow.vue';
 import ajax from './router/main/ajax.vue';
 import treeView from './router/main/treeView.vue';
+import svg from './router/main/svg.vue';
 
 Vue.component('appHeader', head);
 Vue.component('appFooter', foot);
@@ -69,6 +70,11 @@ const routerMap = {
                 path: 'treeView',
                 component: treeView,
                 name: 'treeView'
+            },
+            {
+                path: 'svg',
+                component: svg,
+                name: 'svg'
             }
         ]
     }
