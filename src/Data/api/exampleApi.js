@@ -14,6 +14,13 @@ const actions = {
             .then(data => {
                 commit('getData', data)
             })
+    },
+    postApi: ({ commit }, data) => {
+        console.log('data: ', data);
+        postAjax('http://128.199.162.67:8080/tmp_note/get')
+            .then(data => {
+                commit('getData', data)
+            })
     }
 }
 const getters = {}
