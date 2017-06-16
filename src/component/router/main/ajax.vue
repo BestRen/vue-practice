@@ -5,11 +5,7 @@
         </el-input>
         <el-button type="primary" size="large" v-on:click="send">送出</el-button>
         <el-button size="large" v-on:click="clear">清除</el-button>
-        <div v-for="(item,index) in data" class="box" v-on:click="del(index)">
-            <span>
-                <span>x</span>
-                <span v-text="item"></span>
-            </span>
+        <div v-for="(item,index) in data" class="box" v-on:click="del(index)" v-text="item">
         </div>
     
     </div>
@@ -28,10 +24,13 @@ export default {
     },
     computed: {
         msg() {
-            return 'Ajax!!'
+            return '!!'
         },
         data() {
             return exampleApiCtrl.state.data || '';
+        },
+        bbbb() {
+
         }
     },
     methods: {
