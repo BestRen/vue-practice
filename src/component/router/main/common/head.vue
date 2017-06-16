@@ -9,7 +9,7 @@ import { sliderMenuCtrl } from 'Data/store';
 export default {
     data() {
         return {
-            pageName: '測試'
+            pageName: 'Vue Demo'
         }
     },
     computed: {
