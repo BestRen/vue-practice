@@ -1,30 +1,33 @@
 <template>
     <div>
-        <div v-text="msg"></div>
-        <button v-on:click="getData">Get Data!!</button>
-        <el-row :gutter="24">
-            <el-col :xs="8" :sm="6" :md="4" :lg="6">
-                <div class="grid-content bg-purple">
-                    Firstname
-                    <el-input v-model="firstName" placeholder=""></el-input>
-                </div>
+        <!--<div v-text="msg"></div>-->
+        <el-row>
+            <el-col :span="24">
+                <el-button v-on:click="getData">Get Data!!</el-button>
             </el-col>
-            <el-col :xs="8" :sm="6" :md="4" :lg="3">
-                <div class="grid-content bg-purple">Lastname
-                    <el-input v-model="lastName" placeholder=""></el-input>
-                </div>
+        </el-row>
+        <el-row>
+            <el-col :span="24">
+                Firstname
+                <el-input v-model="firstName" placeholder=""></el-input>
             </el-col>
-            <el-col :xs="8" :sm="6" :md="4" :lg="3">
-                <div class="grid-content bg-purple">Age
-    
-                    <el-input v-model="age" placeholder=""></el-input>
-                </div>
+        </el-row>
+        <el-row>
+            <el-col :span="24">
+                Lastname
+                <el-input v-model="lastName" placeholder=""></el-input>
             </el-col>
-            <el-col :xs="8" :sm="6" :md="4" :lg="3">
-                <div class="grid-content bg-purple">
-                    <button v-on:click=add v-if="show">Push!</button>
-                    <button v-on:click=save v-if="!show">Save!</button>
-                </div>
+        </el-row>
+        <el-row>
+            <el-col :span="24">
+                Age
+                <el-input v-model="age" placeholder=""></el-input>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-col :span="24">
+                <el-button v-on:click=add v-if="show">Push!</el-button>
+                <el-button v-on:click=save v-if="!show">Save!</el-button>
             </el-col>
         </el-row>
         <el-table :data="items" style="width: 100%" v-loading.body="loading">

@@ -5,9 +5,7 @@ const state = {
 }
 const mutations = {
     getData(state, data) {
-        console.log('data: ', data);
         state.data = data.data.reverse();
-        // state.data = data;
     }
 
 }
